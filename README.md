@@ -1,1 +1,1 @@
-# playwright_workshop
+# workshops
