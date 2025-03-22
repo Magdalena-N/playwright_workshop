@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "store": "npx playwright test --headed --project=playwright",
     "dev": "npx playwright test --project=dev",
+    "dates": "npx playwright test tests/dates --project=no.browser",
+    "faker": "npx playwright test tests/faker --project=no.browser",
     "dev.visible": "npx playwright test --project=dev --headed",
     "prod": "npx playwright test --project=prod"
   },
@@ -20,10 +23,12 @@
   },
   "homepage": "https://github.com/Magdalena-N/playwright_workshop#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.11"
   },
   "dependencies": {
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7"
   }
 }
