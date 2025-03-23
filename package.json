@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "store": "npx playwright test --headed --project=playwright",
-    "dev": "npx playwright test --project=dev",
+    "dev": "npx playwright test --project=chrome",
+    "dev.visible": "npx playwright test --project=dev --headed",
     "dates": "npx playwright test tests/dates --project=no.browser",
     "faker": "npx playwright test tests/faker --project=no.browser",
-    "dev.visible": "npx playwright test --project=dev --headed",
     "prod": "npx playwright test --project=prod"
   },
   "repository": {

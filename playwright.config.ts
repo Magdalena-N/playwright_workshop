@@ -38,13 +38,13 @@ export default defineConfig({
     {
       name: "dev",
       use: {
-        baseURL: "https://the-internet.herokuapp.com/",
+        baseURL: process.env.URL as string,
         ...devices["Desktop Chrome"],
       },
     },
 
     {
-      name: "playwright",
+      name: "chrome",
       use: {
         ...devices["Desktop Chrome"],
       },

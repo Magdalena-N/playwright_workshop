@@ -16,8 +16,8 @@ export class MainPage {
     await this.passwordInput.fill(password);
   }
 
-  async openMainPage(): Promise<void> {
-    await this.page.goto("https://automationteststore.com/");
+  async openMainPage(url: string): Promise<void> {
+    await this.page.goto(url);
     await expect(this.page.title()).resolves.toEqual(this.titlePage);
   }
 
