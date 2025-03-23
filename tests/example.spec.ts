@@ -1,9 +1,18 @@
 import { test, expect } from "@playwright/test";
-import 'dotenv/config'
+import "dotenv/config";
+import { LoginPage } from "../pages/login.page";
+import { data, herokuAppUrl, storeUrl } from "../helpers/data";
+
+test.only("pom", async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  // await loginPage.goto()
+  // await loginPage.getStarted()
+  // await loginPage.pageObjectModel()
+});
 
 test("basic test checkboxes", async ({ page }) => {
   await test.step("Step 1", async () => {
-    await page.goto("/checkboxes");
+    await page.goto(herokuAppUrl + "/checkboxes");
     const classExample = page.locator(".example");
     await expect(classExample).toBeVisible();
     await expect(classExample).toContainText("Checkboxes");
@@ -21,9 +30,9 @@ test("basic test checkboxes", async ({ page }) => {
   });
 });
 
-test.only("Basic test for fill inputs", async ({ page }) => {
+test("Basic test for fill inputs", async ({ page }) => {
   await test.step("open login page", async () => {
-    await page.goto("/login");
+    await page.goto(herokuAppUrl + "/login");
     const classExample = page.locator(".example");
     await expect(classExample).toBeVisible();
     await expect(classExample).toContainText(
@@ -43,13 +52,12 @@ test.only("Basic test for fill inputs", async ({ page }) => {
     await loginButton.click();
     await page.waitForTimeout(5000);
   });
-  
 });
 
-test.only("Basic test for dropdown list", async ({ page }) => {
-  await page.goto("/dropdown")
-  const dropdown = page.locator("#dropdown")
-  await dropdown.selectOption('1')
-  await expect(dropdown).toContainText("Option 1")
+test("Basic test for dropdown list", async ({ page }) => {
+  await page.goto("/dropdown");
+  const dropdown = page.locator("#dropdown");
+  await dropdown.selectOption("1");
+  await expect(dropdown).toContainText("Option 1");
   await page.waitForTimeout(5000);
 });
